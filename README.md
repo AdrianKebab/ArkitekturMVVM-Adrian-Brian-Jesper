@@ -1,6 +1,6 @@
 # Arkitektur MVVM
 
-**MVVM (Model-View-ViewModel)** utvecklades för att lösa problemen med tät koppling (tight coupling) mellan UI och kodlogiken, vilket ofta uppstår i traditionella mönster som Code-Behind. Mönstret skapades av **Ken Cooper** och **Ted Peters** på Microsoft, och gjordes känt av **John Gossman** år 2005 för att användas med WPF(Windows Presentation Foundation).
+**MVVM (Model-View-ViewModel)** utvecklades för att lösa problemen med tät koppling (tight coupling) mellan UI och kodlogiken, vilket ofta uppstår i traditionella mönster som Code-Behind. Mönstret skapades av **Ken Cooper** och **Ted Peters** på Microsoft, och gjordes känt av **John Gossman** år 2005.
 
 ## Vilket problem försöker arkitekturen lösa?
 
@@ -12,9 +12,9 @@ De problemen MVVM försöker lösa är:
   Webbapplikationer kräver ett grafiskt gränssnitt för att köras och genom att flytta logiken till en ViewModel (som inte har någon UI-kod) kan man enkelt skriva tester för metoderna.
 
 - **Manuell datahantering**   
-  Utan MVVM måste du skriva manuell kod för att hämta text från en textruta, skicka den till databasen, och manuellt uppdatera skärmen igen. MVVM löser detta helt genom automatisk bindning och i vårat fall ObservableCollection.
+  Utan MVVM måste du skriva manuell kod för att hämta text från en textruta, skicka den till databasen, och manuellt uppdatera skärmen igen. MVVM löser detta genom automatisk bindning och i vårat fall ObservableCollection.
 ```
-  <TextBox Text="{Binding input}" />
+  <TextBox Text="{Binding AddTodoCommand}" />
 ```
 
 ## Vilka är de huvudsakliga komponenterna i den här arkitekturen?
@@ -36,17 +36,18 @@ De problemen MVVM försöker lösa är:
 - Hämtar data från Model och omvandlar den så att View kan visa den.
 
 ### Model:   
-- Håller i Datan   
-- Hämtar och sparar datan från databaser?   
+- Tar hand om programmets Data   
+- Innehåller exempelvis Todo-objekt och deras egenskaper
+- Ska veta inget om View
 
 ## Samspelar denna arkitektur extra bra med ett eller flera designmönster?
 
-Dependancy injection?
-MVVM skapar beroenden mellan View, ViewModel och model. DI fixa detta genom att skicka in beroenden utifrån??
+Dependancy injection   
+MVVM passar bra ihop med Dependency Injection eftersom ViewModels ofta behöver använda tjänster, exempelvis en databas eller API tjänst. Istället för att ViewModel själv skapar dessa beroenden skickas de in utifrån. Detta gör koden mer flexibel och enklare att användas.
 
 ## Hur flödar data genom systemet? Från ett klick eller en HTTP-request till dataförändring och att det syns igen på skärmen, vilka steg tar koden?
 
-1. Användaren klickar
+1. Användaren klickar "Lägg till"
 2. Button kör AddTodoCommand
 3. AddTodo() körs
 4. En ny Todo skapas
@@ -66,6 +67,6 @@ MVVM skapar beroenden mellan View, ViewModel och model. DI fixa detta genom att 
   
 ## Tänk tillbaka på något eller några av de största projekten ni arbetat med. Hur hade det blivit om denna arkitektur hade använts där?
 
-bla bla
+Näe
 
 Utöver dessa frågor ska en demonstration av appen och dess kod såklart göras, liksom ett snabbt demo av hur ett nytt projekt med denna arkitektur skapas från grunden. Utöver det får gruppen gärna avsluta med personliga åsikter kring hur det var att arbeta med denna arkitektur, oavsett om det så var superbra eller hemskt!
