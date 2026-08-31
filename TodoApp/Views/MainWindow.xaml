@@ -5,8 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TodoApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="300">
     <Grid>
+        <StackPanel Margin="20">
 
+            <TextBox Text="{Binding NewTitle,
+                            UpdateSourceTrigger=PropertyChanged}" />
+
+            <Button Content="Add item"
+                    Command="{Binding AddTodoCommand}" />
+
+            <ItemsControl ItemsSource="{Binding TodoItems}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <CheckBox Content="{Binding Title}"
+                                IsChecked="{Binding IsCompleted, Mode=TwoWay}"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+
+        </StackPanel>
     </Grid>
 </Window>
