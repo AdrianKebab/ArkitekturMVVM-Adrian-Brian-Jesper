@@ -57,8 +57,13 @@ MVVM skapar beroenden mellan View, ViewModel och model. DI fixa detta genom att 
 
 ## Vilka saker blir svårare med denna arkitektur?
 
-bla bla
+- **Svår felsökning**   
+  Fel i XAML eller HTML-bindningar syns ofta inte vid kompilering, utan kraschar eller tyst misslyckas vid körning.
+  
+- **Mer kod**   
+  Som vanligt så blir det mer kod då man använder ramverk/arkitekturer, med MVVM så måste det skapas View, ViewModel och Model.
 
+  
 ## Tänk tillbaka på något eller några av de största projekten ni arbetat med. Hur hade det blivit om denna arkitektur hade använts där?
 
 bla bla
