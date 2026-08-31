@@ -8,18 +8,23 @@
         Title="MainWindow" Height="450" Width="300">
     <Grid>
         <StackPanel Margin="20">
-
+            <TextBlock Text="Sök"></TextBlock>
+            <TextBox Text="{Binding SearchText,
+                            UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="Lägg till ny"></TextBlock>
             <TextBox Text="{Binding NewTitle,
                             UpdateSourceTrigger=PropertyChanged}" />
 
             <Button Content="Add item"
                     Command="{Binding AddTodoCommand}" />
 
-            <ItemsControl ItemsSource="{Binding TodoItems}">
+            <ItemsControl ItemsSource="{Binding FilteredTodoItems}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <CheckBox Content="{Binding Title}"
-                                IsChecked="{Binding IsCompleted, Mode=TwoWay}"/>
+                                IsChecked="{Binding IsCompleted, Mode=TwoWay}"
+                                Command="{Binding DataContext.ToggleTodoCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                                CommandParameter="{Binding}" />
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
