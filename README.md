@@ -4,19 +4,39 @@
 
 ## Vilket problem försöker arkitekturen lösa?
 
-bla bla
+(Spaghetti code)
+(Unit testing)
+Dåligt samarbete mellan designers och utvecklare
+Manuell synkronisering av data
 
 ## Vilka är de huvudsakliga komponenterna i den här arkitekturen?
 
-bla bla
+- **View:** Hur datan uppvisas för användaren
+- **ViewModel:** Kopplingen mellan View och Model, hanterar datan mellan dem
+- **Model:** lagring av data
 
 ## Vilket ansvar har varje komponent?
 
-bla bla
+### View:   
+Visa gränsnittet(ui) för användaren   
+använder XAML   
+Tar emot användarinput och visar data   
+Ska innehålla så lite logik kod som den kan
+
+### ViewModel:   
+ViewModel ska fungera som en bro mellan View och Model   
+Hämtar data från Model och omvandlar den så att View kan visa den.
+
+### Model:   
+Håller i Datan   
+Hämtar och sparar datan från databaser?   
+Har ingen koppling till gränsnittet(ui)
 
 ## Samspelar denna arkitektur extra bra med ett eller flera designmönster?
 
-bla bla
+Dependancy injection?
+MVVM skapar beroenden mellan View, ViewModel och model. DI fixa detta genom att skicka in beroenden utifrån??
+
 
 ## Hur flödar data genom systemet? Från ett klick eller en HTTP-request till dataförändring och att det syns igen på skärmen, vilka steg tar koden?
 
@@ -26,6 +46,8 @@ bla bla
 
 bla bla
 
-Tänk tillbaka på något eller några av de största projekten ni arbetat med. Hur hade det blivit om denna arkitektur hade använts där?
+## Tänk tillbaka på något eller några av de största projekten ni arbetat med. Hur hade det blivit om denna arkitektur hade använts där?
+
+bla bla
 
 Utöver dessa frågor ska en demonstration av appen och dess kod såklart göras, liksom ett snabbt demo av hur ett nytt projekt med denna arkitektur skapas från grunden. Utöver det får gruppen gärna avsluta med personliga åsikter kring hur det var att arbeta med denna arkitektur, oavsett om det så var superbra eller hemskt!
