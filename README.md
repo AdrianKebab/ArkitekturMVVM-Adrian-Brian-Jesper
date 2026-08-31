@@ -4,19 +4,46 @@
 
 ## Vilket problem försöker arkitekturen lösa?
 
-bla bla
+De problemen MVVM försöker lösa är:
+- **Spagettikod**   
+  Om logiken, databaser och design blandas i samma fil blir koden helt knasig. Ändrar du en liten sak i designen går appens funktioner sönder. Med MVVM separeras detta så att logiken ligger i ViewModel, designen i View och datan i Models, vilket gör koden ren och strukturerad.
+
+- **Svårtestat kod**   
+  Webbapplikationer kräver ett grafiskt gränssnitt för att köras och genom att flytta logiken till en ViewModel (som inte har någon UI-kod) kan man enkelt skriva tester för metoderna.
+
+- **någotannat**   
+  bla bla
+
+- **Någotannat**   
+  bla bla
 
 ## Vilka är de huvudsakliga komponenterna i den här arkitekturen?
 
-bla bla
+- **View:** Hur datan uppvisas för användaren   
+- **Model:** lagring av data
+- **ViewModel:** kopplingen mellan View och Model, hanterar logiken och datan mellan View & Modal
 
 ## Vilket ansvar har varje komponent?
 
-bla bla
+### View:   
+- Visa gränsnittet(ui) för användaren   
+- använder XAML   
+- Tar emot användarinput och visar data   
+- Ska innehålla så lite logik-kod som den kan
+
+### ViewModel:   
+- Ska fungera som en bro mellan View och Model   
+- Hämtar data från Model och omvandlar den så att View kan visa den.
+
+### Model:   
+- Håller i Datan   
+- Hämtar och sparar datan från databaser?   
 
 ## Samspelar denna arkitektur extra bra med ett eller flera designmönster?
 
-bla bla
+Dependancy injection?
+MVVM skapar beroenden mellan View, ViewModel och model. DI fixa detta genom att skicka in beroenden utifrån??
+
 
 ## Hur flödar data genom systemet? Från ett klick eller en HTTP-request till dataförändring och att det syns igen på skärmen, vilka steg tar koden?
 
@@ -26,6 +53,8 @@ bla bla
 
 bla bla
 
-Tänk tillbaka på något eller några av de största projekten ni arbetat med. Hur hade det blivit om denna arkitektur hade använts där?
+## Tänk tillbaka på något eller några av de största projekten ni arbetat med. Hur hade det blivit om denna arkitektur hade använts där?
+
+bla bla
 
 Utöver dessa frågor ska en demonstration av appen och dess kod såklart göras, liksom ett snabbt demo av hur ett nytt projekt med denna arkitektur skapas från grunden. Utöver det får gruppen gärna avsluta med personliga åsikter kring hur det var att arbeta med denna arkitektur, oavsett om det så var superbra eller hemskt!
