@@ -11,11 +11,11 @@ De problemen MVVM försöker lösa är:
 - **Svårtestat kod**   
   Webbapplikationer kräver ett grafiskt gränssnitt för att köras och genom att flytta logiken till en ViewModel (som inte har någon UI-kod) kan man enkelt skriva tester för metoderna.
 
-- **någotannat**   
-  bla bla
-
-- **Någotannat**   
-  bla bla
+- **Manuell datahantering**   
+  Utan MVVM måste du skriva manuell kod för att hämta text från en textruta, skicka den till databasen, och manuellt uppdatera skärmen igen. MVVM löser detta helt genom automatisk bindning och i vårat fall ObservableCollection.
+```
+  <TextBox Text="{Binding input}" />
+```
 
 ## Vilka är de huvudsakliga komponenterna i den här arkitekturen?
 
@@ -44,10 +44,16 @@ De problemen MVVM försöker lösa är:
 Dependancy injection?
 MVVM skapar beroenden mellan View, ViewModel och model. DI fixa detta genom att skicka in beroenden utifrån??
 
-
 ## Hur flödar data genom systemet? Från ett klick eller en HTTP-request till dataförändring och att det syns igen på skärmen, vilka steg tar koden?
 
-bla bla
+1. Användaren klickar
+2. Button kör AddTodoCommand
+3. AddTodo() körs
+4. En ny Todo skapas
+5. Todo läggs i Todos
+6. ObservableCollection meddelar WPF
+7. Binding uppdaterar ListBox
+8. "Köp mjölk" syns på skärmen
 
 ## Vilka saker blir svårare med denna arkitektur?
 
