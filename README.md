@@ -4,33 +4,40 @@
 
 ## Vilket problem försöker arkitekturen lösa?
 
-(Spaghetti code)
-(Unit testing)
-Dåligt samarbete mellan designers och utvecklare
-Manuell synkronisering av data
+De problemen MVVM försöker lösa är:
+- **Spagettikod**   
+  Om logiken, databaser och design blandas i samma fil blir koden helt knasig. Ändrar du en liten sak i designen går appens funktioner sönder. Med MVVM separeras detta så att logiken ligger i ViewModel, designen i View och datan i Models, vilket gör koden ren och strukturerad.
+
+- **Svårtestat kod**   
+  Webbapplikationer kräver ett grafiskt gränssnitt för att köras och genom att flytta logiken till en ViewModel (som inte har någon UI-kod) kan man enkelt skriva tester för metoderna.
+
+- **någotannat**   
+  bla bla
+
+- **Någotannat**   
+  bla bla
 
 ## Vilka är de huvudsakliga komponenterna i den här arkitekturen?
 
-- **View:** Hur datan uppvisas för användaren
-- **ViewModel:** Kopplingen mellan View och Model, hanterar datan mellan dem
+- **View:** Hur datan uppvisas för användaren   
 - **Model:** lagring av data
+- **ViewModel:** kopplingen mellan View och Model, hanterar logiken och datan mellan View & Modal
 
 ## Vilket ansvar har varje komponent?
 
 ### View:   
-Visa gränsnittet(ui) för användaren   
-använder XAML   
-Tar emot användarinput och visar data   
-Ska innehålla så lite logik kod som den kan
+- Visa gränsnittet(ui) för användaren   
+- använder XAML   
+- Tar emot användarinput och visar data   
+- Ska innehålla så lite logik-kod som den kan
 
 ### ViewModel:   
-ViewModel ska fungera som en bro mellan View och Model   
-Hämtar data från Model och omvandlar den så att View kan visa den.
+- Ska fungera som en bro mellan View och Model   
+- Hämtar data från Model och omvandlar den så att View kan visa den.
 
 ### Model:   
-Håller i Datan   
-Hämtar och sparar datan från databaser?   
-Har ingen koppling till gränsnittet(ui)
+- Håller i Datan   
+- Hämtar och sparar datan från databaser?   
 
 ## Samspelar denna arkitektur extra bra med ett eller flera designmönster?
 
